@@ -1,0 +1,16 @@
+.img-size {
+  width: 200px;
+  height: 200px;
+}
+
+
+
+tbody {
+  border: 2px solid #555;
+  border-collapse: collapse;
+  font: 16px "Lucida Grande", "Helvetica", "Arial", sans-serif;
+}
+
+#bike-table {
+  width: 1500
+}
