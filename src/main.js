@@ -9,14 +9,6 @@ $(document).ready(function() {
     event.preventDefault();
     let city = $("#location").val();
     $("#location").val("");
-   
-    // (async () => {
-    //   let response = await fetch(`https://bikeindex.org:443/api/v3/search?page=1&per_page=25&location=${city}&distance=10&stolenness=proximity&access_token=api_key`);
-    //   console.log(response);
-    //   let jsonifiedResponse = await response.json();
-    //   getElements(jsonifiedResponse);
-    //   console.log(jsonifiedResponse);
-    // }) ();
 
     (async () => {
       let bikeServise = new BikeService();
@@ -36,24 +28,21 @@ $(document).ready(function() {
       } 
     }
   });
-});                                              
-  // $(document).ready(function() {
-  //   $("form").submit(function(event) {
-//     event.preventDefault();
 
-//     let city = $("#location").val();
-//     $("#location").val("");
+  $("#learn-btn").click(function(){
+    event.preventDefault();
+    
 
-//     (async () => {
-//       let bikeServise = new BikeServise();
-//       const response = await bikeServise.searchBikeByCity(city);
-//       getElements(response);
-//     })();
+    (async () => {
+      let bikeServise = new BikeService();
+      const response = await bikeServise.countBike();
+      getElements(response);
+    })();
 
-//     function getElements(response) {
-//       $('#output').append(`${response.stolen_location}`);
-//     }
+    function getElements(response) {
+      $("#stolen-bikes").html(`${response.stolen}`);
+      console.log(response);
+    }
+  });
 
-//   })
-// });
- 
+});                                             
